@@ -31,7 +31,26 @@
 <p id="result1">This result of Author </p>
 
 <script> 
-
+good=0
+oops=0
+function checkAuthor (){
+    console.log("Getting form values")
+    authorHide = document.getElementById("authorHide").value
+    guessAuthor = document.getElementById("guessAuthor").value
+    
+    out = document.getElementById("result1")
+    if(authorHide==guessAuthor){
+        alert("You got it right");
+        good++
+        
+    } else {
+        alert("Sorry");
+        oops++
+        
+    }
+    
+    out.innerHTML = "Good Counts"+good
+}
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -45,26 +64,7 @@ function resolveForm (){
         out.innerHTML = "Values were not confirmed"
     }
 }
-good=0
-oops=0
-function checkAuthor (){
-    console.log("Getting form values")
-    authorHide = document.getElementById("authorHide").value
-    guessAuthor = document.getElementById("guessAuthor").value
-    
-    out = document.getElementById("result1")
-    if(authorHide==guessAuthor){
-        alert("You are right");
-        good++
-        
-    } else {
-        alert("Sorry");
-        oops++
-        
-    }
-    
-    out.innerHTML = "Good Counts"+good
-}
+
 </script>
 
 </body>
