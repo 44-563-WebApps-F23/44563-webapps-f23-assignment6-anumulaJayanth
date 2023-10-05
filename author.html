@@ -30,6 +30,10 @@
 
 <p id="result1">This result of Author </p>
 
+<div id="container">
+    <img id="cities" src="nai.jpg" alt="City Image" width="100" height="100" onclick="selectImage()">
+</div>
+
 <script> 
 good=0
 oops=0
@@ -51,6 +55,8 @@ function checkAuthor (){
     
     out.innerHTML = "Good Counts"+good
 }
+
+
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -65,6 +71,25 @@ function resolveForm (){
     }
 }
 
+var useImage = 1;
+function selectImage() {
+    switch (useImage) {
+        case 1:
+            document.getElementById('cities').src = 'Ams.jpg'; 
+            useImage = 2;
+            break;
+        case 2:
+            document.getElementById('cities').src = 'mel.jpg'; 
+            useImage = 3;
+            break;
+        case 3:
+            document.getElementById('cities').src = 'nai.jpg';
+            useImage = 1; 
+            break;
+        default:
+            break;
+    }
+}
 </script>
 
 </body>
