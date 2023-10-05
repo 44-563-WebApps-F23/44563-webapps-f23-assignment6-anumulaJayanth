@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <title>Author</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <body>
 
 <h2>Author entry Jayanth Anumula</h2>
@@ -24,11 +25,19 @@
     <label for="Guess">Guess the author</label>
     <input type ="text" id="guessAuthor" name="Guess" > <br>
 
-    <input type="button" onclick="checkAuthor()" value="Check the guess">
+    <input type="button" id="checkGuessButton"onclick="checkAuthor()" value="Check the guess">
 </form>
 
 
 <p id="result1">This result of Author </p>
+
+<div class=" alert-danger mt-2" id="incorrectAnswer" style="display:none;">
+    Incorrect Guesses: <span id="incorrectCount">0</span>
+</div>
+
+<div class=" alert-warning mt-2" id="outOfGuesses" style="display:none;">
+    Sorry, ran out of guesses.
+</div>
 
 <div id="container">
     <img id="cities" src="nai.jpg" alt="City Image" width="100" height="100" onclick="selectImage()">
@@ -37,6 +46,7 @@
 <script> 
 good=0
 oops=0
+incorrectCount=0;
 function checkAuthor (){
     console.log("Getting form values")
     authorHide = document.getElementById("authorHide").value
@@ -48,9 +58,19 @@ function checkAuthor (){
         good++
         
     } else {
-        alert("Sorry");
-        oops++
         
+        oops++
+        incorrectCount++
+        document.getElementById("incorrectCount").textContent = incorrectCount;
+                if (incorrectCount === 7) {
+                    document.getElementById("outOfGuesses").style.display = "block";
+                    document.getElementById("checkGuessButton").onclick = function () {
+                        alert("Sorry, ran out of guesses.");
+                    };
+                } else {
+                    document.getElementById("incorrectAnswer").style.display = "block";
+                }
+                alert("Sorry");
     }
     
     out.innerHTML = "Good Counts"+good
