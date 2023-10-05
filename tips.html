@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head><title>tips</title></head>
+<body>
+
+<h2>Jayanth Anumula Shows tip amounts</h2>
+
+
+
+<form>
+    <label for="base">Enter base amount</label>
+    <input type ="number" id="baseamt" name="base"  value=50> <br>
+
+    <label for="percent">Enter the tip percent</label>
+    <input type ="number" id="tip_percent" name="percent" value=15> <br>
+
+    <input type="button" onclick="tips()" value="Show tip">
+</form>
+
+
+<p id="tip">Total tip </p>
+
+
+
+<script> 
+
+function tips() {
+    var baseamt = parseFloat(document.getElementById('baseamt').value);
+    var tip_percent = parseFloat(document.getElementById('tip_percent').value);
+
+   
+    var myOutput = '';
+    var toShow = "";
+
+
+    for (var i = 0; i < 5; i++) {
+        var tipPercent1 = tip_percent + i * 4
+        var calculatedtip = ((baseamt * tipPercent1 ) / 100);
+        toShow += ( tipPercent1+i*4) + '% is ' + calculatedtip.toFixed(1) + '; ';
+    }
+
+    myOutput +=toShow
+
+    document.getElementById('tip').innerHTML = 'Tips are: ' + myOutput;
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
