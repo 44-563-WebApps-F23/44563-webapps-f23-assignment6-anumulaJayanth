@@ -35,7 +35,7 @@
     Incorrect Guesses: <span id="incorrectCount">0</span>
 </div>
 
-<div class=" alert-warning mt-2" id="outOfGuesses" style="display:none;">
+<div class=" alert-warning mt-2" id="outofChances" style="display:none;">
     Sorry, ran out of guesses.
 </div>
 
@@ -46,7 +46,7 @@
 <script> 
 good=0
 oops=0
-incorrectCount=0;
+wrongCount=0;
 function checkAuthor (){
     console.log("Getting form values")
     authorHide = document.getElementById("authorHide").value
@@ -60,10 +60,10 @@ function checkAuthor (){
     } else {
         
         oops++
-        incorrectCount++
-        document.getElementById("incorrectCount").textContent = incorrectCount;
-                if (incorrectCount === 7) {
-                    document.getElementById("outOfGuesses").style.display = "block";
+        wrongCount++
+        document.getElementById("incorrectCount").textContent = wrongCount;
+                if (wrongCount === 7) {
+                    document.getElementById("outofChances").style.display = "block";
                     document.getElementById("checkGuessButton").onclick = function () {
                         alert("Sorry, ran out of guesses.");
                     };

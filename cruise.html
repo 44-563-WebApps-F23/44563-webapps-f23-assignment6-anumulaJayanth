@@ -36,14 +36,13 @@
 
 <p id="result"></p>
 <script> 
-var my_cruise = {};
+let my_cruise = {};
         
 function selectCruise() {
-            my_cruise = {
-                shared: document.getElementById("checkbox1").checked,
-                breakfast: document.getElementById("checkbox2").checked,
-                pool: document.getElementById("checkbox3").checked
-            };
+    my_cruise = {};
+           my_cruise.shared = document.getElementById("checkbox1").checked;
+            my_cruise.breakfast = document.getElementById("checkbox2").checked;
+            my_cruise.pool = document.getElementById("checkbox3").checked;
             
             var resultElement = document.getElementById("result");
             resultElement.innerHTML = JSON.stringify(my_cruise);
